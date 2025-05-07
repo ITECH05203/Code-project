@@ -15,7 +15,7 @@ CREATE TABLE memberships (
   type ENUM('Basic', 'Premium', 'Gold', 'Elite') NOT NULL,
   start_date DATE NOT NULL,
   end_date DATE NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE programs (
@@ -23,7 +23,7 @@ CREATE TABLE programs (
   user_id INT,
   name VARCHAR(50),
   start_date DATE,
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE attendance_calendar (
@@ -31,5 +31,5 @@ CREATE TABLE attendance_calendar (
   user_id INT,
   date DATE,
   workout_type ENUM('Muscle Day', 'Cardio Day', 'Rest Day', 'Flexibility Day', 'HIIT Day'),
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
