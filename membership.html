@@ -1,0 +1,450 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Membership Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap');
+
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+    .dashboard-header {
+      padding: 2rem 1rem 1rem 1rem;
+      border-bottom: 1px solid #333;
+    }
+    .dashboard-header h1 {
+      color: #f97316;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .profile-section {
+      background: #1f1f1f;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.7);
+    }
+    .profile-pic {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid #f97316;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+      user-select: none;
+    }
+    .profile-info h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: #f97316;
+    }
+    .profile-info p {
+      margin: 0;
+      color: #ccc;
+      font-weight: 500;
+    }
+    .stats-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: #222;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+      user-select: none;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .stat-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(249, 115, 22, 0.8);
+    }
+    .stat-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #f97316;
+      margin-bottom: 0.5rem;
+    }
+    .stat-card p {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: white;
+      margin: 0;
+    }
+    .calendar-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .calendar-header button {
+      background-color: #f97316;
+      border: none;
+      color: black;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      padding: 0.4rem 1rem;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(249, 115, 22, 0.6);
+    }
+    .calendar-header button:hover,
+    .calendar-header button:focus {
+      background-color: #facc15;
+      color: black;
+      outline: none;
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.9);
+    }
+    .calendar-header span {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #f97316;
+      min-width: 180px;
+      text-align: center;
+      text-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      user-select: none;
+    }
+    .calendar-day-name {
+      text-align: center;
+      font-weight: 600;
+      color: #f97316;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #444;
+      user-select: none;
+      text-shadow: 0 0 6px rgba(249, 115, 22, 0.7);
+    }
+    .day {
+      background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+      border-radius: 1rem;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 110px;
+      box-shadow:
+        inset 2px 2px 5px #3a3a3a,
+        inset -2px -2px 5px #1a1a1a;
+      position: relative;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      user-select: none;
+      outline-offset: 3px;
+    }
+    .day:hover,
+    .day:focus-visible {
+      box-shadow:
+        0 0 15px rgba(249, 115, 22, 0.7),
+        inset 2px 2px 5px #3a3a3a,
+        inset -2px -2px 5px #1a1a1a;
+      background: linear-gradient(145deg, #3b3b3b, #272727);
+      outline: none;
+    }
+    .day span.date-number {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f97316;
+      user-select: none;
+      text-shadow: 0 0 6px rgba(249, 115, 22, 0.8);
+    }
+    .workout-type {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      color: #f97316;
+      font-weight: 700;
+      min-height: 2.2rem;
+      user-select: none;
+      text-shadow: 0 0 5px rgba(249, 115, 22, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .workout-type.empty {
+      color: #777;
+      font-weight: 500;
+      text-shadow: none;
+    }
+    .workout-modal-content {
+      background-color: #1f1f1f;
+      color: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.8);
+    }
+    .workout-modal-content h5 {
+      color: #f97316;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 0 0 8px rgba(249, 115, 22, 0.9);
+    }
+    .workout-type-selection {
+      margin-top: 1rem;
+    }
+    .modal-body select {
+      background-color: #444;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      width: 100%;
+      font-weight: 600;
+      box-shadow: inset 2px 2px 5px #3a3a3a;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .modal-body select:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 8px #f97316;
+      outline: none;
+    }
+    footer {
+      margin-top: auto;
+      padding: 1rem 0;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    @media (max-width: 576px) {
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-info h2 {
+        font-size: 1.5rem;
+      }
+      .profile-pic {
+        width: 80px;
+        height: 80px;
+      }
+      .calendar {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+      }
+      .day {
+        height: 90px;
+        padding: 0.5rem 0.3rem;
+      }
+      .workout-type {
+        min-height: 1.8rem;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+ </head>
+ <body>
+  <header class="dashboard-header text-center">
+   <h1>Membership Dashboard</h1>
+  </header>
+  <main class="container my-4">
+   <section class="profile-section">
+    <img alt="User profile picture" class="profile-pic" height="96" loading="lazy" src="mukhangewan.jpg" width="96" />
+    <div class="profile-info">
+     <h2>Geronvale Cabanizas</h2>
+     <p>Premium Member</p>
+    </div>
+   </section>
+   <section aria-label="User statistics" class="stats-cards">
+    <div aria-label="Workouts Completed" class="stat-card" role="region" tabindex="0">
+     <h3>Workouts Completed</h3>
+     <p>42</p>
+    </div>
+    <div aria-label="Active Days" class="stat-card" role="region" tabindex="0">
+     <h3>Active Days</h3>
+     <p>35</p>
+    </div>
+    <div aria-label="Calories Burned" class="stat-card" role="region" tabindex="0">
+     <h3>Calories Burned</h3>
+     <p>12,500</p>
+    </div>
+    <div aria-label="Membership Validity" class="stat-card" role="region" tabindex="0">
+     <h3>Membership Validity</h3>
+     <p>6 Months</p>
+    </div>
+   </section>
+   <section aria-label="Workout calendar">
+    <div class="calendar-header">
+     <button aria-label="Previous month" id="prevMonth">&lt; Prev</button>
+     <span aria-atomic="true" aria-live="polite" id="monthYear"></span>
+     <button aria-label="Next month" id="nextMonth">Next &gt;</button>
+    </div>
+    <div aria-label="Workout calendar days" aria-readonly="true" class="calendar" id="calendar" role="grid">
+
+     <div class="calendar-day-name" role="columnheader">Sun</div>
+     <div class="calendar-day-name" role="columnheader">Mon</div>
+     <div class="calendar-day-name" role="columnheader">Tue</div>
+     <div class="calendar-day-name" role="columnheader">Wed</div>
+     <div class="calendar-day-name" role="columnheader">Thu</div>
+     <div class="calendar-day-name" role="columnheader">Fri</div>
+     <div class="calendar-day-name" role="columnheader">Sat</div>
+    </div>
+   </section>
+  </main>
+
+  <div aria-hidden="true" aria-labelledby="workoutModalLabel" class="modal fade" id="workoutModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content workout-modal-content">
+     <div class="modal-header border-0">
+      <h5 class="modal-title" id="workoutModalLabel">Select Workout Type</h5>
+      <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button"></button>
+     </div>
+     <div class="modal-body">
+      <div class="workout-type-selection">
+       <select aria-label="Workout type selection" class="form-select" id="workoutType">
+        <option value="Muscle Day">Muscle Day</option>
+        <option value="Cardio Day">Cardio Day</option>
+        <option value="Rest Day">Rest Day</option>
+        <option value="Flexibility Day">Flexibility Day</option>
+        <option value="HIIT Day">HIIT Day</option>
+       </select>
+      </div>
+     </div>
+     <div class="modal-footer border-0">
+      <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+      <button class="btn btn-primary" id="saveWorkoutBtn" type="button">Save Workout</button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <footer>© 2025 Barracks Gym. All rights reserved.</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let currentDate = new Date();
+    let selectedDay = null;
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const calendarContainer = document.getElementById("calendar");
+    const monthYearElement = document.getElementById("monthYear");
+
+   
+    function updateCalendar() {
+      const month = currentDate.getMonth();
+      const year = currentDate.getFullYear();
+
+      monthYearElement.textContent = `${monthNames[month]} ${year}`;
+
+   
+      const firstDayOfMonth = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  
+      while (calendarContainer.children.length > 7) {
+        calendarContainer.removeChild(calendarContainer.lastChild);
+      }
+
+
+      for (let i = 0; i < firstDayOfMonth; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.setAttribute("aria-hidden", "true");
+        calendarContainer.appendChild(emptyDiv);
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        dayDiv.setAttribute("data-day", i);
+        dayDiv.setAttribute("role", "gridcell");
+        dayDiv.setAttribute("tabindex", "0");
+        dayDiv.setAttribute("aria-label", `Day ${i}, no workout assigned`);
+        dayDiv.innerHTML = `
+          <span class="date-number">${i}</span>
+          <div class="workout-type empty" id="workout-type-${i}">Select workout</div>
+        `;
+        calendarContainer.appendChild(dayDiv);
+
+
+        dayDiv.addEventListener("click", () => showModal(i));
+        dayDiv.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            showModal(i);
+          }
+        });
+      }
+    }
+
+
+    function showModal(day) {
+      selectedDay = day;
+      const workoutModal = new bootstrap.Modal(
+        document.getElementById("workoutModal")
+      );
+      workoutModal.show();
+    }
+
+    document.getElementById("saveWorkoutBtn").onclick = function () {
+      const workoutType = document.getElementById("workoutType").value;
+      const workoutTypeDiv = document.getElementById(`workout-type-${selectedDay}`);
+      workoutTypeDiv.innerText = workoutType;
+      workoutTypeDiv.classList.remove("empty");
+      const dayDiv = workoutTypeDiv.parentElement;
+      dayDiv.setAttribute(
+        "aria-label",
+        `Day ${selectedDay}, workout assigned: ${workoutType}`
+      );
+      const workoutModal = bootstrap.Modal.getInstance(
+        document.getElementById("workoutModal")
+      );
+      workoutModal.hide();
+    };
+
+
+    document.getElementById("prevMonth").onclick = function () {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      updateCalendar();
+    };
+
+    document.getElementById("nextMonth").onclick = function () {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      updateCalendar();
+    };
+
+
+    window.onload = updateCalendar;
+  </script>
+ </body>
+</html>
