@@ -15,253 +15,9 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #000000;
-      color: #e5e5e5;
-      margin: 0;
-      padding: 0;
-      overflow: auto;
-    }
-    .container {
-  margin-top: 10rem;
-  margin-bottom: -1rem;
-}
-.voucher-section {
-  margin-top: 10rem;
-  margin-bottom: 3rem;
-    
-    }
-    section {
-      margin-bottom: 100px; 
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Playfair Display", serif;
-      color: #e5e5e5;
-      margin-top: 9%; 
-    }
-  
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #111111;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #fffffe;
-      border-radius: 10px;
-    }
-    .price-card {
-      background: linear-gradient(
-        135deg,
-        #b36b00,
-        #d35400,
-        #b36b00
-      );
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-      color: black;
-    }
-    .price-card:hover {
-      background: linear-gradient(
-        135deg,
-        #d35400,
-        #e67e22,
-        #d35400
-      );
-      transform: scale(1.03);
-    }
-    
-    .btn-gradient {
-      background: linear-gradient(90deg, #f97316, #facc15);
-      color: black;
-      font-weight: 700;
-      border-radius: 9999px;
-
-      transition: background 0.3s ease;
-    }
-    .btn-gradient:hover,
-    .btn-gradient:focus {
-      background: linear-gradient(90deg, #facc15, #f97316);
-      color: black;
-    }
-   
-    .navbar-bg {
-      background-color: rgba(0, 0, 0, 0.7) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.7);
-    }
-
-    .modal-backdrop-custom {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
- 
-    .coach-img {
-      border: 4px solid #f97316;
-      box-shadow: 0 0 15px rgba(249, 115, 22, 0.7);
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-    }
-    .drop-shadow-orange {
-      text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
-    }
-  
-    .gallery-img {
-      border-radius: 1.5rem;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.7);
-      object-fit: cover;
-      height: 16rem;
-      width: 100%;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      margin-bottom: 7.5%;
-    }
-    .gallery-img:hover {
-      transform: scale(1.05);
-    }
- 
-    .form-control-custom {
-      background-color: #1a1a1a;
-      border: 1px solid #444444;
-      color: #e5e5e5;
-      border-radius: 1rem;
-      padding: 0.75rem 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .form-control-custom:focus {
-      border-color: #f97316;
-      box-shadow: 0 0 0 0.25rem rgba(249, 115, 22, 0.5);
-      background-color: #1a1a1a;
-      color: #e5e5e5;
-    }
-    
-    input[type="radio"].form-check-input:checked {
-      background-color: #f97316;
-      border-color: #f97316;
-    }
-   
-    .footer-icon:hover {
-      color: #f97316 !important;
-    }
-   
-    .hero-img {
-      filter: brightness(0.75);
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.253));
-      pointer-events: none;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 64rem;
-      color: #f97316;
-      text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
-    }
-    .nav-link {
-      color: rgb(231, 231, 231) !important;
-    }
-    
-    .voucher-section {
-      height: 30vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    
-    }
-
-    .voucher-btn {
-      background-color: #ff6f00;
-      color: #fff;
-      font-size: 20px;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
-      transition: all 0.3s ease;
-      height: 80px;
-      margin-top: 58%;
-    }
-
-    .voucher-btn:hover {
-      background-color: #ff8c00;
-      transform: scale(1.05);
-    }
-
-    .modal-content {
-      background-color: #1f1f1f;
-      color: #fff;
-      border-radius: 15px;
-    }
-
-    .form-label {
-      font-weight: bold;
-    }
-
-    .form-control,
-    .form-select {
-      background-color: #333;
-      border: none;
-      color: #fff;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-      border: 2px solid #ff6f00;
-      box-shadow: none;
-    }
-
-    .submit-btn {
-      background-color: #ff6f00;
-      border: none;
-      color: #fff;
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      font-size: 16px;
-    }
-
-    .submit-btn:hover {
-      background-color: #ff8c00;
-    }
-    .text-orange {
-        color: #FFA500; 
-      }
-      .nav-link {
-        transition: color 0.3s ease, background-color 0.3s ease;
-      }
-  
-
-      .nav-link:hover {
-       
-        background-color: rgb(255, 115, 0) 
-      }
-  </style>
+  <link rel="stylesheet" href="styles/index.css"/>
 </head>
 <body class=" text-white-200">
-
   <nav
     class="navbar navbar-expand-md fixed-top  bg-white bg-opacity-10 backdrop-blur shadow-sm"
     aria-label="Main navigation"
@@ -271,9 +27,10 @@
         class="navbar-brand d-flex align-items-center text-orange fw-bold fs-2 font-serif tracking-widest user-select-none"
         href="#"
       >
+        <!-- For the logo in the navbar -->
         <img
           alt="Luxury gold letter B logo with elegant serif style"
-          src="BB.png"
+          src="assets/BB.png"
           width="40"
           height="40"
           class="me-3"
@@ -373,7 +130,7 @@
 >
   <img
     alt="Luxury gym interior with warm ambient lighting, elegant design, and high-end fitness equipment"
-    src="babak.jpg"
+    src="assets/babak.jpg"
     width="1920"
     height="1080"
     class="hero-img"
@@ -445,24 +202,13 @@
       </div>
     </div>
   </div>
-  
-
-
-
-
-
-
-
-
-
-
   <section
     class="py-5"
     id="Price"
     style="background: linear-gradient(to bottom, #000000, #1a1a1a, #000000);"
   >
     <h2
-      class="text-center text-orange fw-bold font-serif display-4 m-10 tracking-widest drop-shadow-orange "
+      class="text-center text-orange fw-bold font-serif display-4"
     >
       PRICELIST
     </h2>
@@ -570,7 +316,7 @@
           >
             <img
               alt="High intensity cardio training session with athlete running on treadmill in a luxury gym"
-              src="building muscle.jpg"
+              src="assets/building muscle.jpg"
               width="600"
               height="400"
               class="w-100 object-fit-cover"
@@ -599,7 +345,7 @@
           >
             <img
               alt="Strength training with weights in modern gym setting with luxury ambiance"
-              src="power strengh.jpg"
+              src="assets/power strengh.jpg"
               width="600"
               height="400"
               class="w-100 object-fit-cover"
@@ -628,7 +374,7 @@
           >
             <img
               alt="Peaceful yoga session in luxury studio with natural light and serene atmosphere"
-              src="lost weight.jpg"
+              src="assets/lost weight.jpg"
               width="600"
               height="400"
               class="w-100 object-fit-cover"
@@ -668,7 +414,7 @@
         <div class="col-12 col-md-4 d-flex flex-column align-items-center">
           <img
             alt="Portrait of John Doe smiling confident businessman in luxury fitness testimonial"
-            src="coach 1.jpg"
+            src="assets/coach 1.jpg"
             width="150"
             height="150"
             class="coach-img"
@@ -685,7 +431,7 @@
         <div class="col-12 col-md-4 d-flex flex-column align-items-center">
           <img
             alt="Portrait of Jane Smith happy fitness enthusiast testimonial in luxury gym"
-            src="Coach 2.jpg"
+            src="assets/Coach 2.jpg"
             width="150"
             height="150"
             class="coach-img"
@@ -702,7 +448,7 @@
         <div class="col-12 col-md-4 d-flex flex-column align-items-center">
           <img
             alt="Portrait of Samuel Lee entrepreneur smiling testimonial luxury fitness"
-            src="coach 3.jpg"
+            src="assets/coach 3.jpg"
             width="150"
             height="150"
             class="coach-img"
@@ -736,7 +482,7 @@
         <div class="col-12 col-md-4">
           <img
             alt="Luxury gym interior with modern equipment and warm ambient lighting, showcasing sleek design"
-            src="1 (2).jpg"
+            src="assets/1 (2).jpg"
             width="600"
             height="400"
             class="gallery-img"
@@ -746,7 +492,7 @@
         <div class="col-12 col-md-4">
           <img
             alt="Luxury gym interior with modern equipment and warm ambient lighting, showcasing sleek design"
-            src="1 (1).jpg"
+            src="assets/1 (1).jpg"
             width="600"
             height="400"
             class="gallery-img"
@@ -756,7 +502,7 @@
         <div class="col-12 col-md-4">
           <img
             alt="Luxury gym interior with modern equipment and warm ambient lighting, showcasing sleek design"
-            src="1 (3).jpg"
+            src="assets/1 (3).jpg"
             width="600"
             height="400"
             class="gallery-img"
@@ -923,41 +669,15 @@
           </div>
       
           <div class="d-grid gap-3">
-            <a href="admin_dashboard.html" id="adminLoginBtn" class="btn btn-gradient" role="button" tabindex="0">Admin</a>
-            <a href="membership.html" id="userLoginBtn" class="btn btn-outline-warning fw-semibold rounded-pill py-3" role="button" tabindex="0">User</a>
+            <a href="admin_dashboard.php" id="adminLoginBtn" class="btn btn-gradient" role="button" tabindex="0">Admin</a>
+            <a href="membership.php" id="userLoginBtn" class="btn btn-outline-warning fw-semibold rounded-pill py-3" role="button" tabindex="0">User</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  <script src="scripts/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-
-
-
-   
- 
-
-    document.getElementById('voucherForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-  
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const membership = document.getElementById('membershipType').value;
-      const program = document.getElementById('program').value;
-  
-      if (username && password && membership && program) {
-       
-        localStorage.setItem('barracksUser', JSON.stringify({ username, membership, program }));
-  
-        alert(`Welcome, ${username}!\nMembership: ${membership}\nProgram: ${program}`);
-  
-       
-        window.location.href = 'membership.html';
-      } else {
-        alert('Please fill in all fields.');
-      }
-    });
-  </script>
 </body>
 </html>
