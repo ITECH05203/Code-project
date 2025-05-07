@@ -1,0 +1,242 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #000000;
+  color: #e5e5e5;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+.container {
+margin-top: 10rem;
+margin-bottom: -1rem;
+}
+.voucher-section {
+margin-top: 10rem;
+margin-bottom: 3rem;
+
+}
+section {
+  margin-bottom: 100px; 
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  color: #e5e5e5;
+  margin-top: 9%; 
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #fffffe;
+  border-radius: 10px;
+}
+.price-card {
+  background: linear-gradient(
+    135deg,
+    #b36b00,
+    #d35400,
+    #b36b00
+  );
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  color: black;
+}
+.price-card:hover {
+  background: linear-gradient(
+    135deg,
+    #d35400,
+    #e67e22,
+    #d35400
+  );
+  transform: scale(1.03);
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #f97316, #facc15);
+  color: black;
+  font-weight: 700;
+  border-radius: 9999px;
+
+  transition: background 0.3s ease;
+}
+.btn-gradient:hover,
+.btn-gradient:focus {
+  background: linear-gradient(90deg, #facc15, #f97316);
+  color: black;
+}
+
+.navbar-bg {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.7);
+}
+
+.modal-backdrop-custom {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.coach-img {
+  border: 4px solid #f97316;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.7);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+.drop-shadow-orange {
+  text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+}
+
+.gallery-img {
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.7);
+  object-fit: cover;
+  height: 16rem;
+  width: 100%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 7.5%;
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+.form-control-custom {
+  background-color: #1a1a1a;
+  border: 1px solid #444444;
+  color: #e5e5e5;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-control-custom:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 0.25rem rgba(249, 115, 22, 0.5);
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+
+input[type="radio"].form-check-input:checked {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+
+.footer-icon:hover {
+  color: #f97316 !important;
+}
+
+.hero-img {
+  filter: brightness(0.75);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.253));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  color: #f97316;
+  text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+}
+.nav-link {
+  color: rgb(231, 231, 231) !important;
+}
+
+.voucher-section {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.voucher-btn {
+  background-color: #ff6f00;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+  transition: all 0.3s ease;
+  height: 80px;
+  margin-top: 58%;
+}
+
+.voucher-btn:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05);
+}
+
+.modal-content {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control,
+.form-select {
+  background-color: #333;
+  border: none;
+  color: #fff;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border: 2px solid #ff6f00;
+  box-shadow: none;
+}
+
+.submit-btn {
+  background-color: #ff6f00;
+  border: none;
+  color: #fff;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #ff8c00;
+}
+.text-orange {
+    color: #FFA500; 
+  }
+  .nav-link {
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+
+  .nav-link:hover {
+   
+    background-color: rgb(255, 115, 0) 
+  }
