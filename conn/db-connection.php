@@ -1,21 +1,14 @@
 <?php
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "barracksgymdb";
+$host = 'localhost';
+$dbname = 'barracksgymdb';
+$username = 'root';
+$password = '';
 
 try {
-    // Create PDO connection
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    
-    // Set error mode to exception
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // echo "Connected successfully";
 } catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    die("Connection failed: " . $e->getMessage());
 }
-
-// To close connection: $conn = null;
 ?>

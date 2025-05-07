@@ -26,7 +26,7 @@
         <tbody></tbody>
       </table>
     </div>
-    <button id="logout" type="button" aria-label="Logout from admin dashboard">Logout</button>
+    <button id="logout" type="button" aria-label="Logout from admin dashboard" onclick="window.location.href='handlers/logout.php'">Logout</button>
   </div>
   
   <script src="scripts/admin-dashboard.js"></script>

@@ -102,11 +102,19 @@
           <li class="nav-item d-none d-md-block">
             <button
               type="button"
-              class="btn btn-outline-warning rounded-pill fw-semibold px-4 py-2"
+              class="btn btn-outline-warning rounded-pill fw-semibold px-4 py-2 me-2"
               data-bs-toggle="modal"
               data-bs-target="#loginModal"
             >
               Login
+            </button>
+            <button
+              type="button"
+              class="btn btn-gradient rounded-pill fw-semibold px-4 py-2"
+              data-bs-toggle="modal"
+              data-bs-target="#signupModal"
+            >
+              Sign Up
             </button>
           </li>
         </ul>
@@ -119,6 +127,14 @@
           data-bs-target="#loginModal"
         >
           Login
+        </button>
+        <button
+          type="button"
+          class="btn btn-gradient rounded-pill fw-semibold w-100"
+          data-bs-toggle="modal"
+          data-bs-target="#signupModal"
+        >
+          Sign Up
         </button>
       </div>
     </div>
@@ -649,6 +665,49 @@
   
 
 
+  <!-- Sign Up Modal -->
+  <div class="modal fade" tabindex="-1" id="signupModal" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="signupForm">
+            <div class="mb-4">
+              <label for="signupUsername" class="form-label fw-semibold text-orange-400">Username</label>
+              <input type="text" id="signupUsername" name="username" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter username" required />
+            </div>
+         
+            <div class="mb-4">
+              <label for="signupPassword" class="form-label fw-semibold text-orange-400">Password</label>
+              <input type="password" id="signupPassword" name="password" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter password" required />
+            </div>
+            
+            <div class="mb-4">
+              <label for="signupRole" class="form-label fw-semibold text-orange-400">Role</label>
+              <select id="signupRole" name="role" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" required>
+                <option value="">Select your role</option>
+                <option value="member">Member</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+        
+            <div class="d-grid">
+              <button type="button" id="signupBtn" class="btn btn-gradient py-3">Sign Up</button>
+            </div>
+            <div class="mt-3 text-center">
+              <p class="text-muted">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+            </div>
+            <div id="signupMessage" class="mt-3 text-center"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
   <div class="modal fade" tabindex="-1" id="loginModal" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -657,26 +716,31 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-       
-          <div class="mb-4">
-            <label for="username" class="form-label fw-semibold text-orange-400">Username</label>
-            <input type="text" id="username" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter username" />
-          </div>
-       
-          <div class="mb-4">
-            <label for="password" class="form-label fw-semibold text-orange-400">Password</label>
-            <input type="password" id="password" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter password" />
-          </div>
-      
-          <div class="d-grid gap-3">
-            <a href="admin_dashboard.php" id="adminLoginBtn" class="btn btn-gradient" role="button" tabindex="0">Admin</a>
-            <a href="membership.php" id="userLoginBtn" class="btn btn-outline-warning fw-semibold rounded-pill py-3" role="button" tabindex="0">User</a>
-          </div>
+          <form id="loginForm">
+            <div class="mb-4">
+              <label for="loginUsername" class="form-label fw-semibold text-orange-400">Username</label>
+              <input type="text" id="loginUsername" name="username" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter username" required />
+            </div>
+         
+            <div class="mb-4">
+              <label for="loginPassword" class="form-label fw-semibold text-orange-400">Password</label>
+              <input type="password" id="loginPassword" name="password" class="form-control form-control-dark rounded-pill border-0 px-4 py-3" placeholder="Enter password" required />
+            </div>
+        
+            <div class="d-grid">
+              <button type="button" id="loginBtn" class="btn btn-gradient py-3">Login</button>
+            </div>
+            <div class="mt-3 text-center">
+              <p class="text-muted">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a></p>
+            </div>
+            <div id="loginMessage" class="mt-3 text-center"></div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/login.js"></script>
   <script src="scripts/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

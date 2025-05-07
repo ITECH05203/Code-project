@@ -9,6 +9,9 @@
  <body>
   <header class="dashboard-header text-center">
    <h1>Membership Dashboard</h1>
+   <div class="text-end pe-4">
+     <a href="handlers/logout.php" class="btn btn-outline-warning">Logout</a>
+   </div>
   </header>
   <main class="container my-4">
    <section class="profile-section">
